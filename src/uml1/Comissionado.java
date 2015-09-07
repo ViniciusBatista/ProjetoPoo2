@@ -20,6 +20,7 @@ public class Comissionado extends Empregado{
         this.percentual = percentual;
     }
     
+    
     @Override
     public double getValor (){
       return super.getSalario()+ ((super.getSalario() * getPercentual())/100);

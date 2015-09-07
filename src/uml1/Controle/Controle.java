@@ -11,6 +11,7 @@ import exe.GratificacaoInvalidaException;
 import exe.MensalidadeException;
 import exe.NomeException;
 import exe.SalarioException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import uml1.Aluno;
 import uml1.Comissionado;
@@ -88,9 +89,9 @@ public class Controle {
 
         try {
             Comissionado comis = new Comissionado();
+            comis.setNome(nome);
             comis.setCpf(cpf);
             comis.setSalario(salario);
-            comis.setNome(nome);
             comis.setPercentual(per);
             Empresa.cadComissionado(comis);
         } catch (CpfException ce) {
@@ -112,5 +113,9 @@ public class Controle {
         }catch (ContratoFornecedorException cfe){
             JOptionPane.showMessageDialog(null, "Valor do contrato do fornecedor invalido");
         }
+    }
+    
+    public static ArrayList selectFornecedor(){
+       return Empresa.selectFornecedor();
     }
 }

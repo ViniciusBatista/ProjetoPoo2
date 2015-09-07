@@ -94,4 +94,56 @@ public class Conexao {
             throw new RuntimeException(e);
         }
     }
+    
+    public static void adicionaComissionado(Comissionado comissionado) {
+        conecte();
+        String INSERT = "insert into tb_comissionado (nome, cpf, salario, percentual)"
+                + "values (?,?,?,?)";
+        try {
+            PreparedStatement stmt = con.prepareStatement(INSERT);
+            stmt.setString(1, comissionado.getNome());
+            stmt.setString(2, comissionado.getCpf());
+            stmt.setDouble(3, comissionado.getSalario());
+            stmt.setDouble(4, comissionado.getPercentual());
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    public static void adicionaGerente(Gerente gerente){
+        conecte();
+        String INSERT = "insert into tb_gerente (nome, cpf, salario, gratificacao)" 
+                +"values (?,?,?,?)" ;
+        try{
+            PreparedStatement stmt = con.prepareStatement(INSERT);
+            stmt.setString(1, gerente.getNome());
+            stmt.setString(2, gerente.getCpf());
+            stmt.setDouble(3, gerente.getSalario());
+            stmt.setDouble(4, gerente.getGratificacao());
+            stmt.execute();
+            stmt.close();
+        }catch (SQLException e){
+            throw new RuntimeException();
+        }
+    }
+
+    public static void adicionaFornecedor(Fornecedor fornecedor){
+        conecte();
+        String INSERT = "insert into tb_fornecedor(nome, cnpj, valor_contrato)" 
+                +"values (?,?,?)" ;
+        try{
+            PreparedStatement stmt = con.prepareStatement(INSERT);
+            stmt.setString(1, fornecedor.getNome());
+            stmt.setString(2, fornecedor.getCnpj());
+            stmt.setDouble(3, fornecedor.getValorContrato());
+            stmt.execute();
+            stmt.close();
+        }catch (SQLException e){
+            throw new RuntimeException();
+        }
+    }
+
+
 }

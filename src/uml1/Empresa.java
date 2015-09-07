@@ -5,6 +5,9 @@
  */
 package uml1;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -40,14 +43,35 @@ public class Empresa {
     
     public static void cadGerente(Gerente gerente){
         hashGerente.put(idGerente, gerente);
+        Conexao.adicionaGerente(gerente);
     }
     
     public static void cadComissionado(Comissionado comissionado){
         hashComissionado.put(idComissionado, comissionado);
+        Conexao.adicionaComissionado(comissionado);
     }
     
     public static void cadFornecedor(Fornecedor fornecedor){
         hashFornecedor.put(idFornecedor, fornecedor);
+        Conexao.adicionaFornecedor(fornecedor);
+    }
+    
+      public static ArrayList<Fornecedor> selectFornecedor(){
+        ArrayList<Fornecedor> listaFornecedores = new ArrayList<Fornecedor>();
+        String SELECT = "select nome, cnpj from tb_fornecedor";
+            try{
+            Conexao.conecte();
+            ResultSet rs = Conexao.executeQuery(SELECT);
+            while (rs.next()){
+                Fornecedor fornecedor = new Fornecedor();
+                fornecedor.setNome(rs.getString("nome"));
+                fornecedor.setCnpj(rs.getString("cnpj"));
+                listaFornecedores.add(fornecedor);
+            }
+            }catch(SQLException e){
+                System.err.println(e.getMessage());
+            }
+            return listaFornecedores;
     }
     
 

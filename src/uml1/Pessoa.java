@@ -34,6 +34,7 @@ public class Pessoa {
                 throw new NomeException();
             }
         }
+        this.nome = nome;
         }else throw  new NomeException();
     }
 

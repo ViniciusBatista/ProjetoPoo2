@@ -32,6 +32,11 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuForncedor = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItemAluno = new javax.swing.JMenuItem();
+        jMenuItemEmpregados = new javax.swing.JMenuItem();
+        jMenuItemContasPagar = new javax.swing.JMenuItem();
+        jMenuItemContasReceber = new javax.swing.JMenuItem();
+        jMenuItemSaldoGeral = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         jMenuItem2.setText("jMenuItem2");
@@ -56,6 +61,22 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenuForncedor);
 
         jMenu2.setText("Relatorio");
+
+        jMenuItemAluno.setText("Aluno");
+        jMenu2.add(jMenuItemAluno);
+
+        jMenuItemEmpregados.setText("Empregados");
+        jMenu2.add(jMenuItemEmpregados);
+
+        jMenuItemContasPagar.setText("Contas a Pagar");
+        jMenu2.add(jMenuItemContasPagar);
+
+        jMenuItemContasReceber.setText("Contas a Receber");
+        jMenu2.add(jMenuItemContasReceber);
+
+        jMenuItemSaldoGeral.setText("Saldo Geral");
+        jMenu2.add(jMenuItemSaldoGeral);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Sair");
@@ -143,5 +164,10 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuForncedor;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItemAluno;
+    private javax.swing.JMenuItem jMenuItemContasPagar;
+    private javax.swing.JMenuItem jMenuItemContasReceber;
+    private javax.swing.JMenuItem jMenuItemEmpregados;
+    private javax.swing.JMenuItem jMenuItemSaldoGeral;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,11 @@
  */
 package uml1.Interface;
 
+import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.table.DefaultTableModel;
+import uml1.Fornecedor;
+
 /**
  *
  * @author batista
@@ -16,6 +21,7 @@ public class FrameFornecedor extends javax.swing.JFrame {
      */
     public FrameFornecedor() {
         initComponents();
+        inserirTabela();
     }
 
     /**
@@ -27,24 +33,86 @@ public class FrameFornecedor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableFornecedor = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jButtonCadastrarFornecedor = new javax.swing.JButton();
+        jButtonAtualizar = new javax.swing.JButton();
+        jButtonEditar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("FORNECEDOR");
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 461, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 352, Short.MAX_VALUE)
-        );
+        jTableFornecedor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome", "CNPJ"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTableFornecedor);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 520, 240));
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButtonCadastrarFornecedor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButtonCadastrarFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Add.png"))); // NOI18N
+        jButtonCadastrarFornecedor.setText("Cadastrar");
+        jPanel1.add(jButtonCadastrarFornecedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 40));
+
+        jButtonAtualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButtonAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Atualizar.png"))); // NOI18N
+        jButtonAtualizar.setText("Atualizar");
+        jPanel1.add(jButtonAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, 40));
+
+        jButtonEditar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Edit.png"))); // NOI18N
+        jButtonEditar.setText("Editar");
+        jPanel1.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, 40));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Excluir.png"))); // NOI18N
+        jButton1.setText("Excluir");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 110, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 60));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+       public void inserirTabela() {
+        setLocationRelativeTo(null);
+        
+        jTableFornecedor.getColumnModel().getColumn(0).setPreferredWidth(400);
+        jTableFornecedor.getColumnModel().getColumn(1).setPreferredWidth(200);
+        
+        jTableFornecedor.setCellSelectionEnabled(false);
+        jTableFornecedor.setRowSelectionAllowed(true);
+ 
+        
+        DefaultTableModel model = (DefaultTableModel) jTableFornecedor.getModel();
+        ArrayList<Fornecedor> listaFornecedor = uml1.Controle.Controle.selectFornecedor();
+        
+        Object[] fila = new Object[model.getColumnCount()];
+        for (int i = 0; i < listaFornecedor.size(); i++) {
+            fila[0] = listaFornecedor.get(i).getNome();
+            fila[1] = listaFornecedor.get(i).getCnpj();
+            model.addRow(fila);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -81,5 +149,12 @@ public class FrameFornecedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonAtualizar;
+    private javax.swing.JButton jButtonCadastrarFornecedor;
+    private javax.swing.JButton jButtonEditar;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableFornecedor;
     // End of variables declaration//GEN-END:variables
 }
