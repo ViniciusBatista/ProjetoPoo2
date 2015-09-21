@@ -33,7 +33,7 @@ public class Conexao {
             Class.forName(Driver);
 
             con = (Connection) DriverManager.getConnection(url, user, senha);
-            System.out.println("Conexão realizada com sucesso");
+           // System.out.println("Conexão realizada com sucesso");
         } catch (ClassNotFoundException ex) {
             System.err.println(ex.getMessage());
         } catch (SQLException e) {
@@ -78,7 +78,8 @@ public class Conexao {
             throw new RuntimeException(e);
         }
     }
-
+    
+    
     public static void adicionaEmpregado(Empregado empregado) {
         conecte();
         String INSERT = "insert into tb_empregado (nome, cpf, salario)"
@@ -144,6 +145,8 @@ public class Conexao {
             throw new RuntimeException();
         }
     }
+    
+    
 
 
 }

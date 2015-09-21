@@ -6,7 +6,6 @@
 package uml1.Interface;
 
 import java.util.ArrayList;
-import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 import uml1.Fornecedor;
 
@@ -38,7 +37,6 @@ public class FrameFornecedor extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButtonCadastrarFornecedor = new javax.swing.JButton();
         jButtonAtualizar = new javax.swing.JButton();
-        jButtonEditar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -71,27 +69,33 @@ public class FrameFornecedor extends javax.swing.JFrame {
         jButtonCadastrarFornecedor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButtonCadastrarFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Add.png"))); // NOI18N
         jButtonCadastrarFornecedor.setText("Cadastrar");
-        jPanel1.add(jButtonCadastrarFornecedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 40));
+        jButtonCadastrarFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarFornecedorActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonCadastrarFornecedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, 40));
 
         jButtonAtualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButtonAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Atualizar.png"))); // NOI18N
         jButtonAtualizar.setText("Atualizar");
-        jPanel1.add(jButtonAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, 40));
-
-        jButtonEditar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Edit.png"))); // NOI18N
-        jButtonEditar.setText("Editar");
-        jPanel1.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, 40));
+        jPanel1.add(jButtonAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, 40));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Excluir.png"))); // NOI18N
         jButton1.setText("Excluir");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 110, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 110, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 60));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonCadastrarFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarFornecedorActionPerformed
+        // TODO add your handling code here:
+        FrameFornecedorCad frameCad = new FrameFornecedorCad();
+        frameCad.setVisible(true);
+    }//GEN-LAST:event_jButtonCadastrarFornecedorActionPerformed
 
        public void inserirTabela() {
         setLocationRelativeTo(null);
@@ -102,7 +106,6 @@ public class FrameFornecedor extends javax.swing.JFrame {
         jTableFornecedor.setCellSelectionEnabled(false);
         jTableFornecedor.setRowSelectionAllowed(true);
  
-        
         DefaultTableModel model = (DefaultTableModel) jTableFornecedor.getModel();
         ArrayList<Fornecedor> listaFornecedor = uml1.Controle.Controle.selectFornecedor();
         
@@ -152,7 +155,6 @@ public class FrameFornecedor extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAtualizar;
     private javax.swing.JButton jButtonCadastrarFornecedor;
-    private javax.swing.JButton jButtonEditar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableFornecedor;

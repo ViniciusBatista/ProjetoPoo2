@@ -34,26 +34,25 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Aluno"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemAlunoActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemEmpregados">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Empregados"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemEmpregadosActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemContasPagar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Contas a Pagar"/>
+                <Property name="text" type="java.lang.String" value="Relat&#xf3;rio de contas"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemContasReceber">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Contas a Receber"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemSaldoGeral">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Saldo Geral"/>
-              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemContasPagarActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

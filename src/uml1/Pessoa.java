@@ -26,16 +26,18 @@ public class Pessoa {
     }
 
     public void setNome(String nome) throws NomeException {
-        String Permitidos = "ABCÇDEFGHIJKLMNOPQRSTUVWXYZ ÃÁÀÂÉÈÊÍÍÎÓÒÕÔÚÙÛ";
+        String Permitidos = "ABCÇDEFGHIJKLMNOPQRSTUVWXYZ ÃÁÀÂÉÈÊÍÍÎÓÒÕÔÚÙÛ abcçdefghijklmnopqrstuvwxyz ãáàâéèêííîóòõôúùû";
         String nomeCase = nome.toUpperCase();
-        if (nomeCase.length() <= 50){
-        for (int i = 0; i < nomeCase.length(); i++) {
-            if (!Permitidos.contains(nomeCase.charAt(i) + "")) {
-                throw new NomeException();
+        if (nomeCase.length() <= 50) {
+            for (int i = 0; i < nomeCase.length(); i++) {
+                if (!Permitidos.contains(nome.charAt(i) + "")) {
+                    throw new NomeException();
+                }
             }
+            this.nome = nomeCase;
+        } else {
+            throw new NomeException();
         }
-        this.nome = nome;
-        }else throw  new NomeException();
     }
 
     public String getCpf() {
@@ -43,7 +45,7 @@ public class Pessoa {
     }
 
     public void setCpf(String cpf) throws CpfException {
-
+        
         if (cpf.length() == 11 && valCpf(cpf)) {
             this.cpf = cpf;
         } else {

@@ -78,6 +78,7 @@ public class main {
         
        uml1.Interface.FramePrincipal Frame = new uml1.Interface.FramePrincipal();
        Frame.setVisible(true);
+       Empresa.consultaCustos();
    
     }
 }

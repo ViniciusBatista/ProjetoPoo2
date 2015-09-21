@@ -5,24 +5,30 @@
  */
 package uml1;
 
+import exe.PercentualException;
+
 /**
  *
  * @author batista
  */
-public class Comissionado extends Empregado{
+public class Comissionado extends Empregado {
+
     private double percentual;
-    
+
     public double getPercentual() {
         return percentual;
     }
 
-    public void setPercentual(double percentual) {
-        this.percentual = percentual;
+    public void setPercentual(double percentual) throws PercentualException {
+        if (percentual > 0 && percentual <= 100) {
+            this.percentual = percentual;
+        } else {
+            throw new PercentualException();
+        }
     }
-    
-    
+
     @Override
-    public double getValor (){
-      return super.getSalario()+ ((super.getSalario() * getPercentual())/100);
+    public double getValor() {
+        return super.getSalario() + ((super.getSalario() * getPercentual()) / 100);
     }
 }

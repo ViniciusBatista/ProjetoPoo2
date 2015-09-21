@@ -5,6 +5,7 @@
  */
 package uml1.Interface;
 
+
 /**
  *
  * @author batista
@@ -35,8 +36,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuItemAluno = new javax.swing.JMenuItem();
         jMenuItemEmpregados = new javax.swing.JMenuItem();
         jMenuItemContasPagar = new javax.swing.JMenuItem();
-        jMenuItemContasReceber = new javax.swing.JMenuItem();
-        jMenuItemSaldoGeral = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         jMenuItem2.setText("jMenuItem2");
@@ -63,19 +62,28 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenu2.setText("Relatorio");
 
         jMenuItemAluno.setText("Aluno");
+        jMenuItemAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAlunoActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItemAluno);
 
         jMenuItemEmpregados.setText("Empregados");
+        jMenuItemEmpregados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemEmpregadosActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItemEmpregados);
 
-        jMenuItemContasPagar.setText("Contas a Pagar");
+        jMenuItemContasPagar.setText("Relatório de contas");
+        jMenuItemContasPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemContasPagarActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItemContasPagar);
-
-        jMenuItemContasReceber.setText("Contas a Receber");
-        jMenu2.add(jMenuItemContasReceber);
-
-        jMenuItemSaldoGeral.setText("Saldo Geral");
-        jMenu2.add(jMenuItemSaldoGeral);
 
         jMenuBar1.add(jMenu2);
 
@@ -111,7 +119,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
     private void jMenu1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MousePressed
         // TODO add your handling code here:
-          FrameCad cad = new FrameCad();
+        FrameCad cad = new FrameCad();
         cad.setVisible(true);
     }//GEN-LAST:event_jMenu1MousePressed
 
@@ -120,6 +128,26 @@ public class FramePrincipal extends javax.swing.JFrame {
         FrameFornecedor frameFor = new FrameFornecedor();
         frameFor.setVisible(true);
     }//GEN-LAST:event_jMenuForncedorMousePressed
+
+    private void jMenuItemAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAlunoActionPerformed
+        // TODO add your handling code here:
+        FrameListarAluno frameListaAluno = new FrameListarAluno();
+        frameListaAluno.setVisible(true);
+    }//GEN-LAST:event_jMenuItemAlunoActionPerformed
+
+    private void jMenuItemEmpregadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEmpregadosActionPerformed
+        // TODO add your handling code here:
+        FrameListarEmpregado frameEmpregado = new FrameListarEmpregado();
+        frameEmpregado.setVisible(true);
+    }//GEN-LAST:event_jMenuItemEmpregadosActionPerformed
+
+    private void jMenuItemContasPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemContasPagarActionPerformed
+        // TODO add your handling code here:
+        FrameRelatorios framerelatorios = new FrameRelatorios();
+        framerelatorios.setVisible(true);
+    }//GEN-LAST:event_jMenuItemContasPagarActionPerformed
+
+ 
 
     /**
      * @param args the command line arguments
@@ -166,8 +194,6 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItemAluno;
     private javax.swing.JMenuItem jMenuItemContasPagar;
-    private javax.swing.JMenuItem jMenuItemContasReceber;
     private javax.swing.JMenuItem jMenuItemEmpregados;
-    private javax.swing.JMenuItem jMenuItemSaldoGeral;
     // End of variables declaration//GEN-END:variables
 }
